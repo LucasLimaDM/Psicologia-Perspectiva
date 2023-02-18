@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Source Serif Pro', serif;
+    font-weight: 400;
+
 }
 .box-text{
     width: 60%;
@@ -32,10 +35,7 @@ h1,h2,h3{
     font-weight: 500;
     font-size: 1.7em;
 }
-body{
-    font-family: 'Source Serif Pro', serif;
-    font-weight: 400;
-}
+    
 header{
     height: 80px;
     
@@ -44,7 +44,7 @@ header{
     width: 100vw;
     background-color: white;
     border-bottom: 1px solid #f4f4f4;
-    padding: 0 0.5%;
+    padding: 0 calc(0.4% + 5px);
 }
 header h1{
     width: 300px;
@@ -69,13 +69,14 @@ header nav{
     width: calc(100% - 350px);
     height: 100%;
 }
-header nav a, a:visited{
+a, a:visited{
     font-size: 0.95em;
     text-decoration: none;
     color: black;
-    padding: 25px;
     cursor: pointer;
-
+}
+header a, header a:visited{
+    padding: 25px;
 }
 #cursos{
     background-color: #f4f4f4;
@@ -93,40 +94,54 @@ header nav a, a:visited{
 }
 #apresentacao{
     padding-top: 100px;
+    
 }
-
 #menu{
-    height: 20px;
+    height: 15px;
     width: 24px;
+    cursor: pointer;
     display: none;
+}
+#menu-sidebar{
+    height: 25px;
+    width: 25px;
     cursor: pointer;
 }
-#menu span{
+#menu span, #menu-sidebar span{
+    display: block;
     height: 1px;
     width: 100%;
     background-color: black;
     position: relative;
     border-radius: 1px;
 }
-span:nth-child(1){
+#menu-sidebar span:nth-child(1){
+    top: calc(50% + 1px);
+    rotate: 45deg;
+}
+#menu-sidebar span:nth-child(2){  
+    top: 50%;
+    rotate: -45deg;
+}
+#menu span:nth-child(1){
     top: 0;
 }
-span:nth-child(2){
+#menu span:nth-child(2){
     top: 6px;
 }
-span:nth-child(3){
+#menu span:nth-child(3){
     top: 12px;
 }
 #sidebar{
     width: 150px;
     position: fixed;
-    top: 80px;
+    top: 0px;
     right: -150px;
     height: 200px;
     background-color: white;
     border-left: 1px solid #f4f4f4;
     border-bottom: 1px solid #f4f4f4;
-    transition: translate 1s;
+    transition: translate .7s;
     border-radius: 0px 5px;
 }
 #sidebar ul{
@@ -136,28 +151,13 @@ span:nth-child(3){
 }
 
 
-/* #menu{
-    display: none;
-    width: 24px;
-    height: 16px;
-    justify-content: center;
-    cursor: pointer;
-    margin-right:0.5% ;
-}
 
-#menu span{
-    display: block;
-    height: 2px;
-    width: 100%;
-    background-color: black;
-    margin-bottom: 3px;
-} */
 @media(max-width:740px){
     header #button-container{
         display: none;
     }
-    header #menu{
-        display: flex;
+    #menu{
+        display: flex !important;
 
     }
     
