@@ -105,6 +105,7 @@ header a, header a:visited{
 #menu-sidebar{
     height: 25px;
     width: 25px;
+    margin-right: 100px;
     cursor: pointer;
 }
 #menu span, #menu-sidebar span{
