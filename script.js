@@ -19,21 +19,17 @@ menuSidebar.addEventListener('click', function(){
     sidebar.classList.remove('aberto')
 })
 
-// chama a função scrollNaTela ao clicar em cada link 
-function listenerLink() {
-    let linksHeader = document.querySelectorAll('header a');
-    console.log("🚀 ~ file: script.js:21 ~ listenerLink ~ links", linksHeader)
+// adiciona o event que chama a função scrollNaTela ao clicar em cada link 
+
+let linksHeader = document.querySelectorAll('header a');
     for (let i = 0; i < linksHeader.length; i++) {
         linksHeader[i].addEventListener('click', function() {scrollNaTela(i)})
     }
 
     let linksSidebar = document.querySelectorAll('#sidebar a');
-    console.log("🚀 ~ file: script.js:21 ~ listenerLink ~ links", linksSidebar)
     for (let i = 0; i < linksSidebar.length; i++) {
         linksSidebar[i].addEventListener('click', function() {scrollNaTela(i)})
     }
-}
-
 
 // faz o scroll da página ir até a posição desejada
 function scrollNaTela(numPosition) {
