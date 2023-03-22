@@ -1,53 +1,57 @@
 
-let ulHeader = document.querySelector('#button-container ul')
-let sidebar = document.querySelector('#sidebar')
-let ulSidebar = document.querySelector('#sidebar ul')
-let menu = document.querySelector('#menu')
+let ulHeader = document.querySelector('.button-container ul')
+let sidebar = document.querySelector('.sidebar')
+let ulSidebar = document.querySelector('.sidebar ul')
+let menu = document.querySelector('.menu')
 ulSidebar.innerHTML += ulHeader.innerHTML;
-let menuSidebar = document.querySelector('#menu-sidebar')
+let menuSidebar = document.querySelector('.menu-sidebar')
 
 
 // Abre e fecha o menu
 menu.addEventListener('click', function(){
     console.log('menu!')
-    listenerLink()
+    // listenerLink()
     sidebar.classList.add('aberto')
 })
 menuSidebar.addEventListener('click', function(){
     console.log('menu close')
-    listenerLink()
+    // listenerLink()
     sidebar.classList.remove('aberto')
 })
 
 // adiciona o event que chama a função scrollNaTela ao clicar em cada link 
 
 let linksHeader = document.querySelectorAll('header a');
-    for (let i = 0; i < linksHeader.length; i++) {
-        linksHeader[i].addEventListener('click', function() {scrollNaTela(i)})
-    }
+let linksSidebar = document.querySelectorAll('#sidebar a');
 
-    let linksSidebar = document.querySelectorAll('#sidebar a');
-    for (let i = 0; i < linksSidebar.length; i++) {
-        linksSidebar[i].addEventListener('click', function() {scrollNaTela(i)})
+linksListener(linksHeader);
+linksListener(linksSidebar);
+
+function linksListener(links) {
+    for (let i = 0; i < links.length; i++) {
+        console.log(i)
+        console.log(links[i])
+        links[i].addEventListener('click', function() {scrollNaTela(i)})
     }
+}
 
 // faz o scroll da página ir até a posição desejada
 function scrollNaTela(numPosition) {
 
-    let targetOffset = $(trataPosition(numPosition)).offset().top
-    let targetPosition = parseInt(targetOffset)-70
-    $('html,body').animate({scrollTop: targetPosition}, 400)
+    console.log()
+    let targetOffset = document.querySelector(trataPosition(numPosition)).offsetTop;
+    window.scrollTo(0, targetOffset - 110);
 }
+
+
 
 // troca o valor numérico de i pelo respectivo indicador jquery
 function trataPosition(number) {
     switch (number) {
         case 0:
             return '#apresentacao'
-            break;
         case 1:
             return '#cursos'
-            break
         case 2:
             return '#contato'
         default:
