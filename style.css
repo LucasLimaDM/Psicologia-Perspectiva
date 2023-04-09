@@ -159,7 +159,23 @@ main #cursos {
 }
 
 footer {
-  min-height: 300px;
+  min-height: 230px;
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+}
+footer a {
+  text-decoration: underline;
+}
+
+#container-footer {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  gap: 32px;
 }
 
 #imagem {

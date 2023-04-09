@@ -1,4 +1,14 @@
-@use 'base';
+$border-color1: #f2f2f2;
+$background-color1: #fdfdfd;
+
+@mixin flexElement($flex-flow, $justify-content, $align-items, $gap){
+    display: flex;
+    flex-flow: $flex-flow;
+    justify-content: $justify-content;
+    align-items: $align-items;
+    gap: $gap;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -155,9 +165,22 @@ main {
     }
 
 
-}
+} 
 footer{
-    min-height: 300px;
+    min-height: 230px;
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    
+    a{
+        text-decoration: underline
+    }
+}
+
+#container-footer{
+    @include flexElement(row, center, center, 8px);
+    gap: 32px;
 }
 
 
